@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quantum</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+            
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            background-color: rgb(15, 15, 15);
+        }
+        #canvas {
+            border-style: solid;
+            border-width: 2px;
+            border-color: rgb(230, 230, 230);
+            border-radius: 5px;
+        }
+        #gl-canvas, #overlay {
+            display: none;
+        }
+
+        @media (max-aspect-ratio: 1/1) {
+            #canvas {
+                width: 80%;
+            }
+        }
+        @media (min-aspect-ratio: 1/1) {
+            #canvas {
+                height: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id='canvas'></canvas>
+    <canvas id='overlay'></canvas>
+
+    <script src='https://cdn.jsdelivr.net/gh/staplecactus764/webgl-compute-shader@v1.0.5/main.js'></script>
+
+    <script src='setup.js'></script>
+    <script src='webgl.js'></script>
+    <script src='index.js'></script>
+</body>
+</html>
