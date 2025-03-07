@@ -13,7 +13,7 @@ void main() {
     vec2 pos = gl_FragCoord.xy - 0.5;
     float n = float(**n**);
 
-    This specific simulation does not require that the borders are simulated so they are ignored
+    // This specific simulation does not require that the borders are simulated so they are ignored
     if (pos.x == 0.0 || pos.y == 0.0 || pos.x == n - 2.0 || pos.y == n - 2.0) {
         gl_FragColor = vec4(0, 0, pos);
     } else {
