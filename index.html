@@ -27,6 +27,7 @@
             display: none;
         }
 
+        /* Handles resizing based on whether the width or height is larger */
         @media (max-aspect-ratio: 1/1) {
             #canvas {
                 width: 80%;
@@ -41,10 +42,13 @@
 </head>
 
 <body>
+    <!-- For the actual simulation -->
     <canvas id='canvas'></canvas>
+    
+    <!-- Visualizes the potential -->
     <canvas id='overlay'></canvas>
 
-    <!-- This is a libary I made for simplifying WebGL -->
+    <!-- Import a libary I made for simplifying WebGL (I do have two Github accounts) -->
     <script src='https://cdn.jsdelivr.net/gh/staplecactus764/webgl-compute-shader@v1.0.5/main.js'></script>
 
     <script src='setup.js'></script>
