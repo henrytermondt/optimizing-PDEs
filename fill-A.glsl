@@ -25,7 +25,7 @@ void main() {
             2.0 * rx.x + 2.0 * ry.x + 1.0,
             2.0 * rx.y + 2.0 * ry.y + 0.5 * **dt** * texture2D(v, (vec2(j, i) + 0.5) / vDim).x
         );
-        gl_FragColor = vec4(aii, k, k);//vec4(j, i, k, k);//texture2D(v, vec2(j, i) / vDim);//
+        gl_FragColor = vec4(aii, k, k);
     } else if (index == 1.0) { // Lower main diagonal
         if (j != n - 3.0 && k - 1.0 >= 0.0) {
             gl_FragColor = vec4(-rx, k - 1.0, k);
