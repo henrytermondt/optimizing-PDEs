@@ -13,13 +13,15 @@ void main() {
     vec2 pos = gl_FragCoord.xy - 0.5;
     float n = float(**n**);
 
+    This specific simulation does not require that the borders are simulated so they are ignored
     if (pos.x == 0.0 || pos.y == 0.0 || pos.x == n - 2.0 || pos.y == n - 2.0) {
         gl_FragColor = vec4(0, 0, pos);
     } else {
         vec2 aPos = vec2(pos.x * float(**c**), pos.y) + 0.5;
 
-        vec2 aii = vec2(0, 0);
+        vec2 aii = vec2(0, 0); // Placeholder for actual value which is set inside the for loop
 
+        // Runs the summation and finds the value of aii
         vec2 sum = vec2(0, 0);
         for (int i = 0; i < **c**; i ++) {
             vec4 aij = texture2D(A, (aPos + vec2(i, 0)) / ADim);
@@ -31,8 +33,8 @@ void main() {
                 continue;
             }
 
-            vec2 vpos = vec2(mod(aij.z, xDim.x), floor(aij.z / xDim.x)) + 0.5;
-            vec2 xj = texture2D(x, vpos / xDim).xy;
+            vec2 xpos = vec2(mod(aij.z, xDim.x), floor(aij.z / xDim.x)) + 0.5;
+            vec2 xj = texture2D(x, xpos / xDim).xy;
 
             sum += vec2(
                 aij.x * xj.x - aij.y * xj.y,
@@ -48,7 +50,6 @@ void main() {
         float denominator = (aii.x * aii.x + aii.y * aii.y);
 
         vec4 aij = texture2D(A, (aPos + vec2(2, 0)) / ADim);
-        vec2 vpos = vec2(mod(aij.z, xDim.x), floor(aij.z / xDim.x)) + 0.5;
 
         // Set output
         gl_FragColor = vec4(
